@@ -4,9 +4,11 @@ import ReactDOM from 'react-dom';
 import App from './App';
 
 import './styles.css';
+import {ContextProvider} from './components/SocketContext';
 
 ReactDOM.render(
- 
-    <App />,
-  document.getElementById('root'),
+ <ContextProvider>
+    <App />
+    </ContextProvider>,
+  document.getElementById('root')
 );
