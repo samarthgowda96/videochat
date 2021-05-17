@@ -21,12 +21,12 @@ io.on('connection',(socket)=>{
     socket.on("disconnect",()=>{
         socket.broadcast.emit("callended")
     });
-    socket.on("calluser",({userToCall,signalData, from, name})=>{
-        io.to(userToCall).emit("calluser",{signal:signalData, from:from,name:name})
+    socket.on("callUser",({userToCall,signalData, from, name})=>{
+        io.to(userToCall).emit("callUser",{signal:signalData, from:from,name:name})
 
     })
-    socket.on("answercall",(data)=>{    
-        io.to(data.to).emit("callaccepted",data.signal)
+    socket.on("answerCall",(data)=>{    
+        io.to(data.to).emit("callAccepted",data.signal)
     })
 });
 server.listen(PORT,()=>{
